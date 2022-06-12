@@ -11,4 +11,10 @@ export class FactService {
       .get('https://api.chucknorris.io/jokes/random')
       .pipe(map((response) => response.data));
   }
+
+  searchFacts(query: string) {
+    return this.httpService
+      .get(`https://api.chucknorris.io/jokes/search?query=${query}`)
+      .pipe(map((response) => response.data));
+  }
 }

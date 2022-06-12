@@ -2,6 +2,7 @@ scalar JSON
 
 type Query {
   random: Fact
+  searchFacts(query: String): SearchFacts
 }
 
 type Fact {
@@ -12,4 +13,9 @@ type Fact {
   updated_at: String
   url: String
   value: String
+}
+
+type SearchFacts {
+  total: Int
+  result: [Fact]
 }
