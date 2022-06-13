@@ -15,6 +15,10 @@ export class FactService {
   }
 
   searchFacts(query: string): Observable<SearchFactResponse> {
+    if (query.length < 3) {
+      throw new Error('Search must be at least 2 characters.');
+    }
+
     return this.httpService
       .get(`https://api.chucknorris.io/jokes/search?query=${query}`)
       .pipe(map((response) => response.data));
